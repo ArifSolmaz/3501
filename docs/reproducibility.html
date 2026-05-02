@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reproducibility | 3501 Project Hub</title>
+    <meta name="description" content="Public reproducibility notes and audit scripts for the TUBITAK 3501 starspot timing-systematics project.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/site.css">
+  </head>
+  <body data-page="reproducibility">
+    <canvas id="starfield" aria-hidden="true"></canvas>
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-mark">3501</span><span class="brand-text">Project Hub</span></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="reviewer-information.html">Reviewer Route</a>
+        <a href="science-audit.html">Science Audit</a>
+        <a href="mast-query-summary.html">Source Manifest</a>
+        <a href="reproducibility.html">Reproducibility</a>
+        <a href="project-updates.html">Updates</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">Reproducibility</p>
+        <h1>Public rerun path for the audit and source manifest.</h1>
+        <p>
+          The current public reproducibility level is a numerical and archive-source audit. The scripts are designed for the full analysis
+          environment where the cached result products exist.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-inner article-layout">
+          <article class="article-panel">
+            <h2>Public materials</h2>
+            <ul class="clean-list">
+              <li>Selected pre-analysis figures.</li>
+              <li>Numerical audit JSON.</li>
+              <li>MAST/JWST query JSON.</li>
+              <li>Audit and archive-query scripts.</li>
+              <li>Reviewer information and project-update pages.</li>
+            </ul>
+          </article>
+
+          <article class="article-panel">
+            <h2>Run the public scripts</h2>
+            <pre><code>python3 scripts/audit_numerical_claims.py
+python3 scripts/query_primary_sources.py</code></pre>
+            <p>
+              query_primary_sources.py performs metadata queries and avoids large downloads by default. Detector-level JWST reruns should use
+              exact archive products selected from the manifest and a pinned JWST/CRDS environment.
+            </p>
+          </article>
+
+          <article class="article-panel">
+            <h2>Citation statement</h2>
+            <p>
+              This repository contains public pre-analysis figures, numerical audit summaries, archive-source manifests, and reproducibility
+              notes for the 3501 starspot timing-systematics project.
+            </p>
+            <div class="inline-actions">
+              <a class="button" href="data/numerical_claim_audit.json">Audit JSON</a>
+              <a class="button" href="data/mast_query_summary.json">Manifest JSON</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a href="index.html">3501 Project Hub</a>
+      <a href="https://github.com/arifsolmaz/3501">GitHub repository</a>
+    </footer>
+    <script src="assets/site.js" defer></script>
+  </body>
+</html>

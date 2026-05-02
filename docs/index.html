@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>3501 Project Hub | Starspot Timing Systematics</title>
+    <meta name="description" content="Public information, pre-analysis evidence, reviewer dossier, and update log for the TUBITAK 3501 starspot timing-systematics project.">
+    <meta property="og:title" content="3501 Project Hub | Starspot Timing Systematics">
+    <meta property="og:description" content="Pre-analysis figures, numerical audit results, source manifests, reproducibility scripts, and reviewer information.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/site.css">
+  </head>
+  <body data-page="home">
+    <canvas id="starfield" aria-hidden="true"></canvas>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="3501 Project Hub home">
+        <span class="brand-mark">3501</span>
+        <span class="brand-text">Project Hub</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="reviewer-information.html">Reviewer Route</a>
+        <a href="science-audit.html">Science Audit</a>
+        <a href="mast-query-summary.html">Source Manifest</a>
+        <a href="reproducibility.html">Reproducibility</a>
+        <a href="project-updates.html">Updates</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">TUBITAK 3501 public project hub</p>
+          <h1 id="hero-title">Starspot timing systematics in active exoplanet hosts.</h1>
+          <p class="lead">
+            Public information, pre-analysis evidence, reviewer-facing notes, source manifests, and update logs for the project
+            "Comprehensive Characterization and Correction of Starspot-Induced Systematic Effects on Exoplanet Transit Mid-Time Measurements."
+          </p>
+          <div class="hero-actions" aria-label="Fast links">
+            <a class="button primary" href="reviewer-information.html">Open reviewer route</a>
+            <a class="button" href="science-audit.html">Inspect audit</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Project evidence snapshot">
+          <div class="panel-label">Evidence snapshot</div>
+          <figure class="hero-figure">
+            <img src="assets/figures/hatp11b_oc_diagram.png" alt="HAT-P-11b observed minus calculated timing diagram">
+          </figure>
+          <dl class="signal-list">
+            <div>
+              <dt>Audit date</dt>
+              <dd>2026-05-02</dd>
+            </div>
+            <div>
+              <dt>Timing sample</dt>
+              <dd>193 transits</dd>
+            </div>
+            <div>
+              <dt>Primary route</dt>
+              <dd>Audit -> manifest -> scripts</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="section section-tight" id="overview" aria-labelledby="overview-title">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Purpose</p>
+            <h2 id="overview-title">A public, inspectable route through the pre-analysis.</h2>
+          </div>
+          <div class="overview-grid">
+            <article class="text-panel">
+              <h3>Scientific claim</h3>
+              <p>
+                Starspot occultations and unocculted active regions can shift apparent transit mid-times at the seconds-to-minutes level.
+                Those shifts can contaminate TTV, orbital-decay, apsidal-precession, and ephemeris-update work when activity is not modelled
+                or flagged.
+              </p>
+            </article>
+            <article class="text-panel">
+              <h3>Method stance</h3>
+              <p>
+                The project is not framed as a blind correction machine. It develops a decision framework: correct when justified, inflate
+                uncertainty when correction is underdetermined, and exclude transits when the morphology makes timing unreliable.
+              </p>
+            </article>
+            <article class="text-panel">
+              <h3>Public use</h3>
+              <p>
+                This site serves the application-stage public package and can become the accepted-project hub for code releases, validation
+                products, corrected ephemerides, publications, and progress notes.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section evidence-band" id="evidence" aria-labelledby="evidence-title">
+        <div class="section-inner">
+          <div class="section-heading compact">
+            <p class="eyebrow">Numerical audit</p>
+            <h2 id="evidence-title">Main quantitative checks, exposed first.</h2>
+          </div>
+          <div class="metric-grid">
+            <article class="metric-card">
+              <span class="metric-value">62.55 s</span>
+              <span class="metric-label">HAT-P-11b O-C RMS</span>
+            </article>
+            <article class="metric-card">
+              <span class="metric-value">80.27 s</span>
+              <span class="metric-label">WASP-19b O-C RMS</span>
+            </article>
+            <article class="metric-card caution">
+              <span class="metric-value">144.98 s</span>
+              <span class="metric-label">HAT-P-36b O-C RMS; hard validation case</span>
+            </article>
+            <article class="metric-card">
+              <span class="metric-value">22.18 s</span>
+              <span class="metric-label">WASP-52b O-C RMS</span>
+            </article>
+            <article class="metric-card">
+              <span class="metric-value">32.4%</span>
+              <span class="metric-label">Injection-recovery timing-error improvement</span>
+            </article>
+            <article class="metric-card">
+              <span class="metric-value">13,775 ppm</span>
+              <span class="metric-label">GJ 1214b white-light depth; RMS 293 ppm</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="reviewer-title">
+        <div class="section-inner split-layout">
+          <div>
+            <p class="eyebrow">Reviewer route</p>
+            <h2 id="reviewer-title">What to check first.</h2>
+            <p class="section-copy">
+              The site is organized so a reviewer can move from claim to evidence to source traceability without opening the full local
+              application bundle.
+            </p>
+          </div>
+          <div class="route-list">
+            <a class="route-item" href="science-audit.html">
+              <span class="route-index">01</span>
+              <span>
+                <strong>Science audit</strong>
+                <em>RMS timing values, cross-method agreement, HAT-P-36b caution, and current audit scope.</em>
+              </span>
+            </a>
+            <a class="route-item" href="mast-query-summary.html">
+              <span class="route-index">02</span>
+              <span>
+                <strong>Source manifest</strong>
+                <em>Kepler, TESS, and JWST archive-source availability with raw reanalysis extension notes.</em>
+              </span>
+            </a>
+            <a class="route-item" href="reproducibility.html">
+              <span class="route-index">03</span>
+              <span>
+                <strong>Reproducibility</strong>
+                <em>Public scripts, audit JSON, source JSON, and rerun expectations.</em>
+              </span>
+            </a>
+            <a class="route-item" href="project-updates.html">
+              <span class="route-index">04</span>
+              <span>
+                <strong>Updates</strong>
+                <em>Application-stage status now; accepted-scope releases and project outputs later.</em>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section figure-section" id="figures" aria-labelledby="figures-title">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Figures</p>
+            <h2 id="figures-title">Selected pre-analysis visuals.</h2>
+          </div>
+          <div class="figure-grid">
+            <figure class="figure-card wide">
+              <img src="assets/figures/hatp11b_spot_crossings.png" alt="HAT-P-11b spot crossing examples">
+              <figcaption>HAT-P-11b spot-crossing examples</figcaption>
+            </figure>
+            <figure class="figure-card">
+              <img src="assets/figures/hatp11b_oc_diagram.png" alt="HAT-P-11b O-C timing diagram">
+              <figcaption>HAT-P-11b O-C timing diagram</figcaption>
+            </figure>
+            <figure class="figure-card">
+              <img src="assets/figures/cnn_synthetic_metrics.png" alt="Synthetic CNN validation metrics">
+              <figcaption>Synthetic CNN validation metrics</figcaption>
+            </figure>
+            <figure class="figure-card">
+              <img src="assets/figures/gj1214b_jwst_white_light.png" alt="GJ 1214b JWST MIRI white-light curve">
+              <figcaption>GJ 1214b JWST/MIRI white-light curve</figcaption>
+            </figure>
+            <figure class="figure-card">
+              <img src="assets/figures/simulation_observation_validation.png" alt="Simulation and observation validation">
+              <figcaption>Simulation-observation validation</figcaption>
+            </figure>
+            <figure class="figure-card wide">
+              <img src="assets/figures/new_targets_preanalysis.png" alt="Additional validation target pre-analysis">
+              <figcaption>Additional validation targets</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="source-title">
+        <div class="section-inner source-grid">
+          <div>
+            <p class="eyebrow">Source traceability</p>
+            <h2 id="source-title">Archive manifest and audit files.</h2>
+            <p class="section-copy">
+              The public manifest records live archive metadata queries and links the selected evidence back to primary-source availability.
+              Detector-level JWST work can be extended from the manifest using pinned JWST calibration and CRDS contexts.
+            </p>
+          </div>
+          <div class="resource-list">
+            <a href="data/numerical_claim_audit.json">Numerical audit JSON</a>
+            <a href="data/mast_query_summary.json">MAST/JWST manifest JSON</a>
+            <a href="scripts/audit_numerical_claims.py">Audit script</a>
+            <a href="scripts/query_primary_sources.py">Archive query script</a>
+            <a href="https://github.com/arifsolmaz/3501">GitHub repository</a>
+            <a href="https://arifsolmaz.github.io/3501/">Public site URL</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>3501 Project Hub / Starspot timing systematics / Arif Solmaz</p>
+      <a href="https://arifsolmaz.github.io/">Main site</a>
+    </footer>
+
+    <script src="assets/site.js" defer></script>
+  </body>
+</html>

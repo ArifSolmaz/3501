@@ -9,6 +9,9 @@ It includes selected figures, audit summaries, archive query manifests,
 reproducibility scripts, reviewer information, and a project-update page that can
 be extended if the project is accepted.
 
+The website is custom static HTML/CSS/JS in `docs/`. Jekyll is disabled with
+`docs/.nojekyll`, so there is no GitHub Pages theme layer.
+
 ## Publish
 
 ```bash
