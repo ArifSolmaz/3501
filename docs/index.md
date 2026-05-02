@@ -1,6 +1,5 @@
 ---
 layout: home
-title: 3501 Pre-Analysis
 ---
 
 # 3501 Pre-Analysis
@@ -61,4 +60,3 @@ It does **not** publish the full TUBITAK application forms, budget files, person
 - [MAST query JSON](data/mast_query_summary.json)
 - [Audit script](scripts/audit_numerical_claims.py)
 - [Archive query script](scripts/query_primary_sources.py)
-

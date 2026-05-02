@@ -2,3 +2,7 @@ title: "3501 Pre-Analysis"
 description: "Public pre-analysis materials for starspot-induced exoplanet timing systematics."
 theme: minima
 
+header_pages:
+  - mast-query-summary.md
+  - reproducibility.md
+  - science-audit.md
