@@ -1,14 +1,13 @@
 # 3501 Pre-Analysis Public Site
 
-This repository is a public-facing subset of the TUBITAK 3501 pre-analysis work.
+This repository is the public information and pre-analysis hub for the TUBITAK 3501 project.
 It is designed for GitHub Pages at:
 
 https://arifsolmaz.github.io/3501/
 
-Only public-safe materials are included: selected figures, audit summaries,
-archive query manifests, and reproducibility scripts. The full application
-forms, budget files, personal/provenance material, and large cached raw data are
-intentionally excluded.
+It includes selected figures, audit summaries, archive query manifests,
+reproducibility scripts, reviewer information, and a project-update page that can
+be extended if the project is accepted.
 
 ## Publish
 
@@ -29,4 +28,3 @@ git add .
 git commit -m "Update public pre-analysis materials"
 git push
 ```
-

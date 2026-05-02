@@ -2,15 +2,21 @@
 layout: home
 ---
 
-# 3501 Pre-Analysis
+# Starspot Timing Systematics: 3501 Pre-Analysis
 
-Public pre-analysis materials for the project:
+This page is the public information hub for the 3501 project pre-analysis and, if the project is accepted, for updated project materials, outputs, and progress notes.
 
 **Comprehensive Characterization and Correction of Starspot-Induced Systematic Effects on Exoplanet Transit Mid-Time Measurements**
 
-This site publishes a public-safe subset of the pre-analysis work: selected figures, numerical audit results, MAST/JWST source manifests, and reproducibility scripts.
+The purpose is to make the scientific basis inspectable: selected figures, numerical audit results, MAST/JWST source manifests, reproducibility notes, and reviewer-facing explanations are collected here.
 
-It does **not** publish the full TUBITAK application forms, budget files, personal/provenance files, or large cached raw/archive data.
+## Reviewer Route
+
+- Start with the [Science Audit](science-audit.md) for the main numerical checks.
+- Use the [MAST/JWST Manifest](mast-query-summary.md) to inspect archive-source availability.
+- See [Reproducibility](reproducibility.md) for how the public scripts and data summaries are intended to be used.
+- See [Reviewer Information](reviewer-information.md) for a compact guide to the scientific claim, evidence level, and current limitations.
+- See [Project Updates](project-updates.md) for the acceptance/status log and later project outputs.
 
 ## Key Audit Results
 

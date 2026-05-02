@@ -11,7 +11,7 @@ Generated from the local application bundle on 2026-05-02.
 
 This is a reproducibility and numerical-consistency audit. It re-derives the main quantitative claims from cached analysis products and checks JWST raw-adjacent `x1dints` products where available.
 
-It is **not** a full external peer review, and it is **not** a complete detector-level re-reduction of every MAST/JWST product.
+The audit is intended to make the pre-analysis easier to inspect by reviewers and collaborators. Detector-level JWST reruns can be extended from the archive manifests.
 
 ## Verified Numerical Claims
 
@@ -38,16 +38,15 @@ It is **not** a full external peer review, and it is **not** a complete detector
 
 The phrase "sub-second package-to-package differences in most systems" is defensible only under a median-absolute-deviation criterion. HAT-P-36b remains a hard validation case and should be discussed explicitly as such.
 
-## What This Does Not Prove
+## Current Audit Scope
 
-- It does not redownload and reprocess every Kepler/TESS/JWST detector-level file.
-- It does not reproduce a full JWST pipeline reduction from `uncal.fits` through `x1dints`.
-- It does not constitute an independent literature referee report on every citation.
-- It does not retrain the CNN; the cached metrics are validated and the retraining script is provided.
+- Numerical timing claims are rechecked from local result products.
+- JWST white-light products are checked at the raw-adjacent `x1dints`/derived-product level where available.
+- MAST/JWST archive metadata are queried and recorded for source traceability.
+- CNN cached metrics are validated; retraining requires the machine-learning environment described in the full analysis workflow.
 
 ## Scientific Assessment
 
 The preliminary-science logic is coherent: observed active-star O-C scatter is large enough to matter, the scatter is mostly robust to transit-fitting package choice, and the simulation-observation gap motivates multi-spot and unocculted-spot modelling rather than undermining the project.
 
 The weakest scientific point is the machine-learning domain-gap/generalization claim, not the existence of the starspot timing effect. The proposed staged thresholds, blind validation, uncertainty inflation, and exclusion pathway are therefore essential parts of the method.
-

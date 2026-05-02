@@ -1,8 +1,10 @@
-title: "3501 Pre-Analysis"
-description: "Public pre-analysis materials for starspot-induced exoplanet timing systematics."
+title: "3501 Project Hub"
+description: "Public information, pre-analysis materials, reviewer notes, and project updates."
 theme: minima
 
 header_pages:
+  - reviewer-information.md
   - mast-query-summary.md
   - reproducibility.md
   - science-audit.md
+  - project-updates.md
