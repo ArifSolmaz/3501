@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Keep large or sensitive local products out of the public repo.
+Archive/
+PERFECTED_3501_TUBITAK_APPLICATION_2026-05-02/
+*.docx
+*.pdf
+*.fits
+*.npz
+*.h5
+*.hdf5
+
