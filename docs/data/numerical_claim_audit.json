@@ -1,9 +1,9 @@
 {
-  "generated_utc": "2026-05-02T12:06:44.030148+00:00",
-  "bundle_root": "/Users/arf/Desktop/3501/PERFECTED_3501_TUBITAK_APPLICATION_2026-05-02",
+  "generated_utc": "2026-05-02T15:04:23.924724+00:00",
+  "bundle_root": "<bundle_root>",
   "environment": {
     "python": "3.9.6",
-    "executable": "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "executable": "python3",
     "packages": {
       "numpy": "1.26.4",
       "astropy": "6.0.1",
@@ -533,20 +533,17 @@
       "returncode": 0,
       "stdout_tail": [
         "21006 integrasyon y\u00fcklendi",
-        "Kaydedildi: /Users/arf/Desktop/3501/PERFECTED_3501_TUBITAK_APPLICATION_2026-05-02/reproduction/figures/sekil12/sekil12.png",
+        "Kaydedildi: <bundle_root>/reproduction/figures/sekil12/sekil12.png",
         "Ge\u00e7i\u015f derinli\u011fi: 13775 ppm, RMS: 293 ppm"
       ],
-      "stderr_tail": [
-        "/Users/arf/Desktop/3501/PERFECTED_3501_TUBITAK_APPLICATION_2026-05-02/reproduction/figures/sekil12/sekil12_gj1214b_jwst.py:105: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.",
-        "  plt.tight_layout()"
-      ]
+      "stderr_tail": []
     },
     "sekil14_sim_obs_validation.py": {
       "script": "reproduction/figures/sekil14/sekil14_sim_obs_validation.py",
       "returncode": 0,
       "stdout_tail": [
         "Ger\u00e7ek RMS=62.6 s, Sim RMS=42.1 s, Oran=1.5\u00d7",
-        "Kaydedildi: /Users/arf/Desktop/3501/PERFECTED_3501_TUBITAK_APPLICATION_2026-05-02/reproduction/figures/sekil14/sekil14.png"
+        "Kaydedildi: <bundle_root>/reproduction/figures/sekil14/sekil14.png"
       ],
       "stderr_tail": [],
       "parsed_values": {

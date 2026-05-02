@@ -20,10 +20,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-import numpy as np
-from astropy.io import fits
-
-
 ROOT = Path(__file__).resolve().parents[2]
 AUDIT_DIR = Path(__file__).resolve().parents[1]
 RESULTS_DIR = AUDIT_DIR / "results"
@@ -46,13 +42,29 @@ APPLICATION_RMS_CLAIMS_SEC = {
     "WASP-52b": {"claimed": 22.0, "tolerance": 1.0},
 }
 
+np = None
+fits = None
+
+
+def require_science_dependencies() -> None:
+    """Load heavy science dependencies only for full-bundle recomputation."""
+
+    global np, fits
+    if np is not None and fits is not None:
+        return
+    import numpy as numpy_module
+    from astropy.io import fits as fits_module
+
+    np = numpy_module
+    fits = fits_module
+
 
 def scalar(value: Any) -> Any:
     """Return a JSON-serializable scalar/list/dict from numpy-heavy objects."""
 
-    if isinstance(value, np.ndarray):
+    if np is not None and isinstance(value, np.ndarray):
         return [scalar(v) for v in value.tolist()]
-    if isinstance(value, np.generic):
+    if np is not None and isinstance(value, np.generic):
         return value.item()
     if isinstance(value, dict):
         return {str(k): scalar(v) for k, v in value.items()}
@@ -63,12 +75,32 @@ def scalar(value: Any) -> Any:
     return value
 
 
+def sanitize_public_value(value: Any) -> Any:
+    """Remove machine-local paths from public audit artifacts."""
+
+    if isinstance(value, dict):
+        return {str(k): sanitize_public_value(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [sanitize_public_value(v) for v in value]
+    if isinstance(value, tuple):
+        return [sanitize_public_value(v) for v in value]
+    if isinstance(value, str):
+        text = value.replace(str(ROOT), "<bundle_root>")
+        text = text.replace(str(AUDIT_DIR), "<audit_dir>")
+        text = re.sub(r"/Users/[^\s\"']+", "<local-path>", text)
+        return text
+    return value
+
+
 def read_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
 def write_json(path: Path, obj: Any) -> None:
-    path.write_text(json.dumps(scalar(obj), indent=2, ensure_ascii=True), encoding="utf-8")
+    path.write_text(
+        json.dumps(sanitize_public_value(scalar(obj)), indent=2, ensure_ascii=True),
+        encoding="utf-8",
+    )
 
 
 def package_version(name: str) -> str | None:
@@ -92,7 +124,7 @@ def audit_environment() -> dict[str, Any]:
     }
     return {
         "python": sys.version.split()[0],
-        "executable": sys.executable,
+        "executable": Path(sys.executable).name,
         "packages": {display: package_version(dist) for display, dist in packages.items()},
     }
 
@@ -383,11 +415,12 @@ def run_reproduction_script(script: Path) -> dict[str, Any]:
         timeout=180,
         check=False,
     )
+    stderr_tail = proc.stderr.strip().splitlines()[-5:]
     return {
         "script": str(script.relative_to(ROOT)),
         "returncode": proc.returncode,
         "stdout_tail": proc.stdout.strip().splitlines()[-5:],
-        "stderr_tail": proc.stderr.strip().splitlines()[-5:],
+        "stderr_tail": stderr_tail if proc.returncode else [],
     }
 
 
@@ -423,7 +456,7 @@ def build_markdown_report(results: dict[str, Any]) -> str:
         "",
         "## Bottom Line",
         "",
-        "This audit re-derived the major quantitative claims from the bundle's cached analysis products and from the JWST x1dints files present in the folder. It is a reproducibility and numerical-consistency audit intended to make the pre-analysis easier to inspect by reviewers and collaborators.",
+        "This audit re-derived the major quantitative claims from the bundle's cached analysis products and from the JWST x1dints files present in the folder. It is a reproducibility and numerical-consistency audit, not a full external peer review and not a complete detector-level re-reduction of every MAST product.",
         "",
         "## Verified Numerical Claims",
         "",
@@ -481,12 +514,12 @@ def build_markdown_report(results: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "## Current Audit Scope",
+            "## What This Does Not Prove",
             "",
-            "- Numerical timing claims are rechecked from local result products.",
-            "- JWST white-light products are checked at the raw-adjacent x1dints/derived-product level where available.",
-            "- MAST/JWST archive metadata are queried and recorded for source traceability.",
-            "- CNN cached metrics are validated; retraining requires the machine-learning environment described in the full analysis workflow.",
+            "- It does not redownload and reprocess every Kepler/TESS/JWST detector-level file.",
+            "- It does not reproduce a full JWST pipeline reduction from uncal.fits through x1dints for GJ 1214b or WASP-52b.",
+            "- It does not constitute an independent literature referee report on every citation.",
+            "- It does not retrain the CNN because PyTorch is not installed in the current local Python environment; the cached metrics were validated.",
             "",
             "## Brutal Science Assessment",
             "",
@@ -498,7 +531,50 @@ def build_markdown_report(results: dict[str, Any]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def run_public_snapshot_mode() -> None:
+    """Validate the published audit snapshot when the full reproduction tree is absent."""
+
+    candidates = [
+        AUDIT_DIR / "data" / "numerical_claim_audit.json",
+        RESULTS_DIR / "numerical_claim_audit.json",
+    ]
+    snapshot_path = next((path for path in candidates if path.exists()), None)
+    if snapshot_path is None:
+        raise SystemExit(
+            "Full reproduction tree was not found and no published audit snapshot exists. "
+            "Run this script inside the full application bundle or provide data/numerical_claim_audit.json."
+        )
+
+    snapshot = read_json(snapshot_path)
+    comparisons = snapshot.get("application_rms_comparisons", {})
+    checked = [
+        (system, row.get("status"))
+        for system, row in comparisons.items()
+        if isinstance(row, dict) and "status" in row
+    ]
+    failures = [(system, status) for system, status in checked if status != "verified"]
+
+    print("Public audit snapshot mode")
+    try:
+        display_path = snapshot_path.relative_to(ROOT)
+    except ValueError:
+        display_path = snapshot_path.name
+    print(f"Snapshot: {display_path}")
+    print("Full reproduction products are not present, so this run validates the published audit snapshot instead of recomputing from cached science products.")
+    print(f"Generated UTC: {snapshot.get('generated_utc', 'unknown')}")
+    for system, status in checked:
+        print(f"- {system}: {status}")
+    if failures:
+        raise SystemExit(f"Snapshot contains non-verified statuses: {failures}")
+    print("Snapshot status: verified")
+
+
 def main() -> None:
+    if not T0_RESULT_DIR.exists():
+        run_public_snapshot_mode()
+        return
+
+    require_science_dependencies()
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     results: dict[str, Any] = {
         "generated_utc": datetime.now(timezone.utc).isoformat(),
@@ -515,8 +591,12 @@ def main() -> None:
     results["injection_recovery"] = audit_injection_recovery()
     results["figure_script_reruns"] = audit_figure_scripts()
 
-    write_json(RESULTS_DIR / "numerical_claim_audit.json", results)
-    (RESULTS_DIR / "SCIENCE_AUDIT_REPORT.md").write_text(build_markdown_report(results), encoding="utf-8")
+    public_results = sanitize_public_value(results)
+    write_json(RESULTS_DIR / "numerical_claim_audit.json", public_results)
+    (RESULTS_DIR / "SCIENCE_AUDIT_REPORT.md").write_text(
+        build_markdown_report(public_results),
+        encoding="utf-8",
+    )
 
     print(f"Wrote {RESULTS_DIR / 'numerical_claim_audit.json'}")
     print(f"Wrote {RESULTS_DIR / 'SCIENCE_AUDIT_REPORT.md'}")

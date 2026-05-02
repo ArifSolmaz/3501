@@ -48,12 +48,14 @@
           </article>
 
           <article class="article-panel">
-            <h2>Run the public scripts</h2>
-            <pre><code>python3 scripts/audit_numerical_claims.py
+            <h2>Run or inspect the public scripts</h2>
+            <pre><code>cd docs
+python3 scripts/audit_numerical_claims.py
 python3 scripts/query_primary_sources.py</code></pre>
             <p>
-              query_primary_sources.py performs metadata queries and avoids large downloads by default. Detector-level JWST reruns should use
-              exact archive products selected from the manifest and a pinned JWST/CRDS environment.
+              In the public repository, audit_numerical_claims.py validates the published sanitized audit snapshot and explains the full-bundle
+              requirement. In the complete application bundle, the same audit recomputes the numerical checks from the cached science products.
+              query_primary_sources.py performs metadata queries and avoids large downloads by default.
             </p>
           </article>
 
