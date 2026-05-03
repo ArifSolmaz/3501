@@ -69,6 +69,7 @@
       if (target === current) {
         link.classList.add("is-active");
         link.setAttribute("aria-current", "page");
+        link.scrollIntoView({ block: "nearest", inline: "center" });
       }
     });
   }

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Plan | 3501 Project Hub</title>
+    <meta name="description" content="Work packages, timeline, team roles, and budget snapshot for the TUBITAK 3501 starspot timing-systematics project.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/site.css">
+  </head>
+  <body data-page="plan">
+    <canvas id="starfield" aria-hidden="true"></canvas>
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-mark">3501</span><span class="brand-text">Project Hub</span></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html">Project</a>
+        <a href="science.html">Science</a>
+        <a href="project-plan.html">Project Plan</a>
+        <a href="data-sources.html">Data Sources</a>
+        <a href="open-science.html">Open Science</a>
+        <a href="project-updates.html">Updates</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">Project plan</p>
+        <h1>A 24-month research plan built around staged validation.</h1>
+        <p>
+          The schedule separates simulation, parameter mapping, model development, real-data validation, and public release work into linked
+          work packages with explicit go/no-go points.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-inner article-layout">
+          <article class="article-panel">
+            <h2>Work packages</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>WP</th><th>Focus</th><th>Months</th><th>Main output</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td data-label="WP">1</td><td data-label="Focus">Simulation infrastructure</td><td data-label="Months">1-6</td><td data-label="Main output">Validated transit-plus-spot simulator</td></tr>
+                  <tr><td data-label="WP">2</td><td data-label="Focus">Parameter-space mapping</td><td data-label="Months">4-13</td><td data-label="Main output">Timing-bias regime map</td></tr>
+                  <tr><td data-label="WP">3</td><td data-label="Focus">Detection and correction pipeline</td><td data-label="Months">10-18</td><td data-label="Main output">CNN triage and physical correction workflow</td></tr>
+                  <tr><td data-label="WP">4</td><td data-label="Focus">Real-data validation</td><td data-label="Months">15-22</td><td data-label="Main output">Gold-standard active-system validation set</td></tr>
+                  <tr><td data-label="WP">5</td><td data-label="Focus">Open-source release</td><td data-label="Months">20-24</td><td data-label="Main output">Documented code, examples, and public outputs</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="article-panel">
+            <h2>People and training</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Role</th><th>Planned contribution</th><th>Support period</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td data-label="Role">Principal investigator</td><td data-label="Planned contribution">Scientific leadership, modelling, validation, software architecture, publications</td><td data-label="Support period">Full project</td></tr>
+                  <tr><td data-label="Role">MSc bursary student</td><td data-label="Planned contribution">Simulation tests, data processing protocols, early parameter-space work</td><td data-label="Support period">12 months</td></tr>
+                  <tr><td data-label="Role">PhD bursary student</td><td data-label="Planned contribution">ML model development, validation pipeline, software and analysis products</td><td data-label="Support period">24 months</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="article-panel">
+            <h2>Budget snapshot</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Category</th><th>Amount</th><th>Purpose</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td data-label="Category">Bursaries</td><td data-label="Amount">1,050,000 TL</td><td data-label="Purpose">MSc 12 months and PhD 24 months</td></tr>
+                  <tr><td data-label="Category">Equipment</td><td data-label="Amount">250,000 TL</td><td data-label="Purpose">Local prototyping, development, and validation workstations</td></tr>
+                  <tr><td data-label="Category">HPC service</td><td data-label="Amount">80,000 TL</td><td data-label="Purpose">TRUBA compute service for ML and selected posterior runs</td></tr>
+                  <tr><td data-label="Category">Travel</td><td data-label="Amount">70,000 TL</td><td data-label="Purpose">Selective scientific meeting and dissemination support</td></tr>
+                  <tr><td data-label="Category">TUBITAK request</td><td data-label="Amount">1,450,000 TL</td><td data-label="Purpose">Total requested project support</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a href="index.html">3501 Project Hub</a>
+      <a href="open-science.html">Open science</a>
+    </footer>
+    <script src="assets/site.js" defer></script>
+  </body>
+</html>

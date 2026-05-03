@@ -380,12 +380,6 @@ code {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.provenance-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
 .text-panel {
   padding: 1.25rem;
 }
@@ -398,10 +392,6 @@ code {
 
 .evidence-band {
   background: linear-gradient(180deg, rgba(255, 212, 117, 0.06), rgba(74, 158, 255, 0.07));
-}
-
-.provenance-band {
-  background: linear-gradient(180deg, rgba(118, 224, 193, 0.05), rgba(255, 154, 128, 0.04));
 }
 
 .metric-grid {
@@ -697,7 +687,6 @@ code {
 
   .signal-list,
   .overview-grid,
-  .provenance-grid,
   .metric-grid,
   .figure-grid,
   .resource-list {

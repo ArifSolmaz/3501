@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Query primary archive sources used by the science audit.
+"""Query primary archive sources used by the public project site.
 
 The default mode writes metadata/manifests only. It intentionally avoids large
 downloads; raw JWST rateints/uncal products for a single system can be many GB.

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Sources | 3501 Project Hub</title>
+    <meta name="description" content="Public archive data sources for the TUBITAK 3501 starspot timing-systematics project.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/site.css">
+  </head>
+  <body data-page="data">
+    <canvas id="starfield" aria-hidden="true"></canvas>
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-mark">3501</span><span class="brand-text">Project Hub</span></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html">Project</a>
+        <a href="science.html">Science</a>
+        <a href="project-plan.html">Project Plan</a>
+        <a href="data-sources.html">Data Sources</a>
+        <a href="open-science.html">Open Science</a>
+        <a href="project-updates.html">Updates</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">Data sources</p>
+        <h1>Open astronomical archives anchor the project.</h1>
+        <p>
+          The project uses public Kepler, TESS, JWST, and community timing resources to study how stellar activity affects transit timing
+          measurements across different instruments and activity regimes.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-inner article-layout">
+          <article class="article-panel">
+            <h2>Kepler and TESS light curves</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Target</th><th>Mission</th><th>Public products</th><th>Project use</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td data-label="Target">HAT-P-11</td><td data-label="Mission">Kepler</td><td data-label="Public products">52</td><td data-label="Project use">Active-star timing and spot-crossing benchmark</td></tr>
+                  <tr><td data-label="Target">Kepler-17</td><td data-label="Mission">Kepler</td><td data-label="Public products">47</td><td data-label="Project use">High-activity comparison target</td></tr>
+                  <tr><td data-label="Target">WASP-19</td><td data-label="Mission">TESS</td><td data-label="Public products">25</td><td data-label="Project use">Hot-Jupiter timing and injection-recovery tests</td></tr>
+                  <tr><td data-label="Target">HAT-P-36</td><td data-label="Mission">TESS</td><td data-label="Public products">12</td><td data-label="Project use">Hard validation case</td></tr>
+                  <tr><td data-label="Target">WASP-52</td><td data-label="Mission">TESS</td><td data-label="Public products">4</td><td data-label="Project use">Active-host timing comparison</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="article-panel">
+            <h2>JWST examples</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Object</th><th>Public observations</th><th>Project relevance</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td data-label="Object">WASP-52</td><td data-label="Public observations">6</td><td data-label="Project relevance">Active hot-Jupiter host with space-based follow-up value</td></tr>
+                  <tr><td data-label="Object">GJ 1214</td><td data-label="Public observations">4</td><td data-label="Project relevance">M-dwarf white-light and activity-context example</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="article-panel">
+            <h2>Public manifest</h2>
+            <p>
+              The JSON manifest records the current public archive-query snapshot used by the project site. It is kept as project metadata so
+              readers can see which public data families are relevant without downloading large mission products from this repository.
+            </p>
+            <div class="inline-actions">
+              <a class="button" href="data/mast_query_summary.json">Open data-source JSON</a>
+              <a class="button" href="scripts/query_primary_sources.py">Open query script</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a href="index.html">3501 Project Hub</a>
+      <a href="open-science.html">Open science</a>
+    </footer>
+    <script src="assets/site.js" defer></script>
+  </body>
+</html>

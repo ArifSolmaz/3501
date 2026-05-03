@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Science | 3501 Project Hub</title>
+    <meta name="description" content="Science background for the TUBITAK 3501 starspot timing-systematics project.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/site.css">
+  </head>
+  <body data-page="science">
+    <canvas id="starfield" aria-hidden="true"></canvas>
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-mark">3501</span><span class="brand-text">Project Hub</span></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html">Project</a>
+        <a href="science.html">Science</a>
+        <a href="project-plan.html">Project Plan</a>
+        <a href="data-sources.html">Data Sources</a>
+        <a href="open-science.html">Open Science</a>
+        <a href="project-updates.html">Updates</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">Science background</p>
+        <h1>Active stellar surfaces can reshape exoplanet timing measurements.</h1>
+        <p>
+          Transit mid-time measurements are used to track ephemerides, search for additional planets, and test orbital evolution. In active
+          stars, dark spots and bright faculae can perturb the shape of the transit and shift the apparent timing signal.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-inner article-layout">
+          <article class="article-panel">
+            <h2>Why this matters</h2>
+            <p>
+              A planet crossing a spotted stellar surface does not produce a perfectly symmetric light curve. If that distortion is ignored,
+              a timing fit can move the transit center to compensate. The resulting apparent T0 offset can be comparable to the timing
+              precision used in ephemeris and TTV studies.
+            </p>
+          </article>
+
+          <article class="article-panel">
+            <h2>Research questions</h2>
+            <ul class="clean-list">
+              <li>Which stellar, planetary, and spot parameters produce the largest timing bias?</li>
+              <li>When can a contaminated transit be physically corrected?</li>
+              <li>When is uncertainty inflation more defensible than correction?</li>
+              <li>Which active systems provide the strongest real-data validation cases?</li>
+            </ul>
+          </article>
+
+          <article class="article-panel">
+            <h2>Method concept</h2>
+            <p>
+              The project combines forward simulations, physical transit-plus-spot models, machine-learning detection, Bayesian posterior
+              checks, and archive-data validation. Machine learning is used as a triage and detection component; the timing correction remains
+              tied to interpretable physical modelling.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section evidence-band">
+        <div class="section-inner">
+          <div class="section-heading compact">
+            <p class="eyebrow">Preliminary systems</p>
+            <h2>Examples motivating the project design.</h2>
+          </div>
+          <div class="metric-grid">
+            <article class="metric-card">
+              <span class="metric-value">HAT-P-11b</span>
+              <span class="metric-label">Kepler active-star benchmark with visible spot-crossing morphology</span>
+            </article>
+            <article class="metric-card">
+              <span class="metric-value">WASP-19b</span>
+              <span class="metric-label">TESS hot-Jupiter case for injection-recovery experiments</span>
+            </article>
+            <article class="metric-card caution">
+              <span class="metric-value">HAT-P-36b</span>
+              <span class="metric-label">Hard case where method sensitivity and activity remain explicit</span>
+            </article>
+            <article class="metric-card">
+              <span class="metric-value">WASP-52b</span>
+              <span class="metric-label">Active host with TESS and JWST relevance</span>
+            </article>
+            <article class="metric-card">
+              <span class="metric-value">GJ 1214b</span>
+              <span class="metric-label">JWST white-light example relevant to active M-dwarf work</span>
+            </article>
+            <article class="metric-card">
+              <span class="metric-value">Kepler-17b</span>
+              <span class="metric-label">High-activity comparison system for domain-gap testing</span>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a href="index.html">3501 Project Hub</a>
+      <a href="project-plan.html">Project plan</a>
+    </footer>
+    <script src="assets/site.js" defer></script>
+  </body>
+</html>
