@@ -15,7 +15,7 @@ from typing import Any
 
 
 AUDIT_DIR = Path(__file__).resolve().parents[1]
-MAST_DIR = AUDIT_DIR / "mast_queries"
+MAST_DIR = AUDIT_DIR / "data"
 
 LIGHTCURVE_QUERIES = [
     {"target": "HAT-P-11", "mission": "Kepler"},
@@ -23,6 +23,13 @@ LIGHTCURVE_QUERIES = [
     {"target": "WASP-19", "mission": "TESS"},
     {"target": "HAT-P-36", "mission": "TESS"},
     {"target": "WASP-52", "mission": "TESS"},
+    {"target": "HD 189733", "mission": "TESS"},
+    {"target": "Qatar-1", "mission": "TESS"},
+    {"target": "WASP-4", "mission": "TESS"},
+    {"target": "WASP-12", "mission": "TESS"},
+    {"target": "AU Mic", "mission": "TESS"},
+    {"target": "WASP-43", "mission": "TESS"},
+    {"target": "K2-25", "mission": "K2"},
 ]
 
 JWST_QUERIES = [
